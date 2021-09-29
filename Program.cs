@@ -26,7 +26,7 @@ public DbSet<Student> Studenten { get; set; }
             MyContext c = new MyContext();
             c.Studenten.Add(new Student(){ Id = 456, Naam = "Bob2"});
             c.SaveChanges();
-            //yo
+            //yofjfh
         }
     }
 }
