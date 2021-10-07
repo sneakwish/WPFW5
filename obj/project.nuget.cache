@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1PzjoXp3Wn1eF+q5kZouhs26ZfH8M2n17yn+yKXll5e1hY04t1dAUbqrAuZsvBJmhPCVaXSJqlyt6IftqM0EkQ==",
+  "dgSpecHash": "EfGTkAIA0/BPCeGG9e67kKhs0iI3dw3u858szQVmaoasrBIhBLm7x9IWPQK7blcKa8IkuB3INnJ8B0FeMFioXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\wisha\\Documents\\VScodeprojects\\wpfwopdracht5\\wpfwopdracht5.csproj",
+  "projectFilePath": "C:\\Users\\wisha\\Documents\\VSCodeShit\\WPFW3\\WPFW5\\wpfwopdracht5.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wisha\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\wisha\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
