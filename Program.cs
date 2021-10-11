@@ -7,29 +7,28 @@ using System.Linq;
 
 namespace wpfwopdracht5
 {
-public class Grade {
-    public int Id { get; set; }
-    public int Value { get; set; }
-    public int StudentId { get; set; }
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
 
-    public Student Student { get; set; }
-
-}
-public class Student {
-    public int Id { get; set; }
-    [Required]
-    public string Naam { get; set; }
-    public Grade Grade { get; set; }
-
-
-    // public List<Grade> Grades { get; set; }
+    public List<Post> Posts { get; set; }
 }
 
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public int BlogId { get; set; }
+    public Blog Blog { get; set; }
+}
 public class MyContext : DbContext {
     protected override void OnConfiguring(DbContextOptionsBuilder b) =>
     b.UseSqlite("Data Source=database.db");
-    public DbSet<Student> Studenten { get; set; }
-    public DbSet<Grade> cijfers{get; set;}
+    public DbSet<Blog> Studenten { get; set; }
+    public DbSet<Post> cijfers{get; set;}
 }
     class Program
     {
@@ -37,11 +36,11 @@ public class MyContext : DbContext {
         {
             Console.WriteLine("Hello World!");
             MyContext c = new MyContext();
-            c.Studenten.Add(new Student(){Naam = "bole"});
-            c.Studenten.Add(new Student(){Naam = "bole"});
-            c.Studenten.Add(new Student(){Naam = "bole"});
-            c.Studenten.Add(new Student(){Naam = "bole"});
-            c.Studenten.Add(new Student(){Naam = "bole"});
+            // c.Studenten.Add(new Student(){Naam = "bole"});
+            // c.Studenten.Add(new Student(){Naam = "bole"});
+            // c.Studenten.Add(new Student(){Naam = "bole"});
+            // c.Studenten.Add(new Student(){Naam = "bole"});
+            // c.Studenten.Add(new Student(){Naam = "bole"});
     
             // c.Studenten.Single((s) => s.Id == 123).Grades.Add(new Grade);
           
