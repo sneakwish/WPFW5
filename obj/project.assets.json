@@ -1115,11 +1115,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wisha\\Documents\\VSCodeShit\\WPFW3\\WPFW5\\wpfwopdracht5.csproj",
+      "projectUniqueName": "C:\\Users\\wisha\\Documents\\VSCodeShit\\WPFW5\\wpfwopdracht5.csproj",
       "projectName": "wpfwopdracht5",
-      "projectPath": "C:\\Users\\wisha\\Documents\\VSCodeShit\\WPFW3\\WPFW5\\wpfwopdracht5.csproj",
+      "projectPath": "C:\\Users\\wisha\\Documents\\VSCodeShit\\WPFW5\\wpfwopdracht5.csproj",
       "packagesPath": "C:\\Users\\wisha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wisha\\Documents\\VSCodeShit\\WPFW3\\WPFW5\\obj\\",
+      "outputPath": "C:\\Users\\wisha\\Documents\\VSCodeShit\\WPFW5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wisha\\AppData\\Roaming\\NuGet\\NuGet.Config"
