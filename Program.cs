@@ -111,25 +111,73 @@ namespace ORM
     {
         static void Main(string[] args)
         {
+        
             var context = new MyDbContext();
             Console.WriteLine("Wat is uw mail?");
             var email = Console.ReadLine();
             var verhuurder = context.Verhuurders.FirstOrDefault(x => x.Email == email);
 
             while(verhuurder == null){
-                System.Console.WriteLine("Email onbekend");
+                System.Console.WriteLine("Verhuurder onbekend");
                 Console.WriteLine("Wat is uw mail?");
-
                 email = Console.ReadLine();
                 verhuurder = context.Verhuurders.FirstOrDefault(x => x.Email == email);
             }
+           
             System.Console.WriteLine("Hallo " + verhuurder.Name);
             System.Console.WriteLine("Welke auto wilt u toevoegen?");
+
             var auto = Console.ReadLine();
-            verhuurder.Autos.ToList().Add(new Auto )
+            if(auto != "geen"){
+            context.Autos.Add(new Auto {Brand = auto, VerhuurderEmail = verhuurder.Email});
+            context.SaveChanges();
+            System.Console.WriteLine("De Auto is toegevoegd!");
+            }
+            System.Console.WriteLine("Geen auto toegevoegd.");
 
 
-            
+            System.Console.WriteLine("Wat is uw email?");
+            var email2 = Console.ReadLine();
+            var huurder = context.Huurders.FirstOrDefault(x => x.Email == email2);
+            while(huurder == null){
+                System.Console.WriteLine("Huurder onbekend");
+                Console.WriteLine("Wat is uw mail?");
+                email2 = Console.ReadLine();
+                huurder = context.Huurders.FirstOrDefault(x => x.Email == email2);
+            }
+            System.Console.WriteLine("Wanneer wil je een auto huren? (DD-MM-YYYY)");
+            var startTime = Console.ReadLine();
+            var dateTime = new DateTime();
+            Boolean dateParse = DateTime.TryParse(startTime, out dateTime);
+            while(!dateParse){
+                System.Console.WriteLine("Foute Notatie! (DD-MM-YYYY)");
+                startTime = Console.ReadLine();
+                dateTime = new DateTime();
+                dateParse = DateTime.TryParse(startTime, out dateTime);
+            }
+            System.Console.WriteLine("Je wilt huren op: "+ startTime);
+            Console.WriteLine("Voor hoeveel uur wilt u de auto huren?");
+            double hoeveel = Convert.ToDouble(Console.ReadLine());
+            var uren = TimeSpan.FromHours(hoeveel);
+
+            var periode = new Period {
+                            StartTime = dateTime,
+                            BorrowTime = uren
+                        };
+
+            System.Console.WriteLine("Welke auto wil je huren?");
+            var cars = context.Autos.Include(x=>x.Periods)
+            .Where(x => x.Periods.All(t=>t.Available)
+Periods.All(y => y.Available(periode)));
+            foreach(var ga in cars){
+                System.Console.WriteLine(ga.Brand);
+            }
+            var keuze = Console.ReadLine();           
+            var autoQuery = cars.FirstOrDefault(x => x.Brand == keuze);
+            autoQuery.Periods.ToList().Add(periode);
+            context.SaveChanges();
+
+            System.Console.WriteLine("U hebt geboekt!");
             
 
 
@@ -159,11 +207,11 @@ namespace ORM
             //             var durationDouble = double.Parse(duration);
             //             var borrowTime = TimeSpan.FromHours(durationDouble);
 
-            //             var period = new Period
-            //             {
-            //                 StartTime = dateTime,
-            //                 BorrowTime = borrowTime
-            //             };
+                        // var period = new Period
+                        // {
+                        //     StartTime = dateTime,
+                        //     BorrowTime = borrowTime
+                        // };
             //             var autosVrij = context.Autos.Include(x => x.Periods)
             //                 .Where(x => x.Periods.All(y => y.Available(period)));
             //             Console.WriteLine($"Dit zijn de opties voor u: {string.Join(",", autosVrij)}. Welke wilt u?");
